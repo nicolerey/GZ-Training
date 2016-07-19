@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Node-Angular Trial Website</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="../modules/firstApp.js"></script>
+
+        <script src="../controllers/indexController.js"></script>
+    </head>
+    <body ng-app="firstApp">
+        <div ng-controller="indexController">
+            <div>
+                <input type="text" ng-model="name"/>
+                <button type="button" ng-click="AddNameToServer()">Add</button>    
+            </div>
+            <div>
+                <ul>
+                    <li ng-repeat="name in server_response">
+                        <input type="text" value="{{name.name}}" ng-model="name.name"/>
+                        <a href="#" ng-click="SaveNameToServer(name._id, name.name)">save</a>
+                        <a href="#" ng-click="DeleteNameFromServer(name._id)">delete</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
