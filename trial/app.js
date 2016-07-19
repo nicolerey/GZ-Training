@@ -19,7 +19,7 @@ var db = db_module.DBModule(function(){
                 response.end(JSON.stringify(data));
             });
         }
-        else if(pathname=='/addName'){
+        else if(pathname=='/addName' || pathname=='/deleteName' || pathname=='/saveName'){
             request.on('data', function(chunk){
                 request_params += chunk;
             });
@@ -27,53 +27,39 @@ var db = db_module.DBModule(function(){
             request.on('end', function(){
                 request_params = JSON.parse(request_params);
 
-                db.setType('ONE');
-                db.setData({
-                    name: request_params.name
-                });
-                db.insertToDB(function(){
-                    request_params = '';
+                if(pathname=='/addName'){
+                    db.setType('ONE');
+                    db.setData({
+                        name: request_params.name
+                    });
+                    db.insertToDB(function(){
+                        request_params = '';
 
-                    response.writeHead(200, {'Content-Type': 'application/json'});
-                    response.end();
-                });
-            });
-        }
-        else if(pathname=='/deleteName'){
-            request.on('data', function(chunk){
-                request_params += chunk;
-            });
+                        response.writeHead(200, {'Content-Type': 'application/json'});
+                        response.end();
+                    });
+                }
+                else if(pathname=='/deleteName'){
+                    db.setType('ONE');
+                    db.setCondition({_id: db.convertStrToHexStr(request_params._id)});
+                    db.deleteFromDB(function(res){
+                        request_params = '';
 
-            request.on('end', function(){
-                request_params = JSON.parse(request_params);
+                        response.writeHead(200, {'Content-Type': 'application/json'});
+                        response.end();
+                    });
+                }
+                else if(pathname=='/saveName'){
+                    db.setType('ONE');
+                    db.setCondition({_id: db.convertStrToHexStr(request_params._id)});
+                    db.setData({$set: {name: request_params.name}});
+                    db.updateDB(function(res){
+                        request_params = '';
 
-                db.setType('ONE');
-                db.setCondition({_id: db.convertStrToHexStr(request_params._id)});
-                db.deleteFromDB(function(res){
-                    request_params = '';
-
-                    response.writeHead(200, {'Content-Type': 'application/json'});
-                    response.end();
-                });
-            });
-        }
-        else if(pathname=='/saveName'){
-            request.on('data', function(chunk){
-                request_params += chunk;
-            });
-
-            request.on('end', function(){
-                request_params = JSON.parse(request_params);
-
-                db.setType('ONE');
-                db.setCondition({_id: db.convertStrToHexStr(request_params._id)});
-                db.setData({$set: {name: request_params.name}});
-                db.updateDB(function(res){
-                    request_params = '';
-
-                    response.writeHead(200, {'Content-Type': 'application/json'});
-                    response.end();
-                });
+                        response.writeHead(200, {'Content-Type': 'application/json'});
+                        response.end();
+                    });
+                }
             });
         }
         else{
