@@ -15,37 +15,38 @@ server.register(require('inert'), function(err) {
 
     // Static contents
     server.route([
-    {
-	    method: 'GET',
-	    path: '/',
-	    handler: function(request, reply) {
-	        reply.file('client/views/index.html');
-	    }
-	}, {
-	    method: 'GET',
-	    path: '/assets/{filename*}',
-	    handler: function(request, reply) {
-	        reply.file('client/assets/' + request.params.filename);
-	    }
-	}, {
-	    method: 'GET',
-	    path: '/modules/{filename*}',
-	    handler: function(request, reply) {
-	        reply.file('client/modules/' + request.params.filename);
-	    }
-	}, {
-	    method: 'GET',
-	    path: '/services/{filename*}',
-	    handler: function(request, reply) {
-	        reply.file('client/services/' + request.params.filename);
-	    }
-	}, {
-	    method: 'GET',
-	    path: '/controllers/{filename*}',
-	    handler: function(request, reply) {
-	        reply.file('client/controllers/' + request.params.filename);
-	    }
-	}]);
+	    {
+		    method: 'GET',
+		    path: '/',
+		    handler: function(request, reply) {
+		        reply.file('client/views/index.html');
+		    }
+		}, {
+		    method: 'GET',
+		    path: '/assets/{filename*}',
+		    handler: function(request, reply) {
+		        reply.file('client/assets/' + request.params.filename);
+		    }
+		}, {
+		    method: 'GET',
+		    path: '/modules/{filename*}',
+		    handler: function(request, reply) {
+		        reply.file('client/modules/' + request.params.filename);
+		    }
+		}, {
+		    method: 'GET',
+		    path: '/services/{filename*}',
+		    handler: function(request, reply) {
+		        reply.file('client/services/' + request.params.filename);
+		    }
+		}, {
+		    method: 'GET',
+		    path: '/controllers/{filename*}',
+		    handler: function(request, reply) {
+		        reply.file('client/controllers/' + request.params.filename);
+		    }
+		}
+	]);
 });
 
 var db = db_module.DBModule(function() {
