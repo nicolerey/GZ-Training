@@ -12,8 +12,7 @@ server.connection({
 server.register(require('inert'), function(err) {
     if (err)
         throw err;
-
-<<<<<<< HEAD
+    
     // Static contents
     server.route([
 	    {
@@ -111,7 +110,7 @@ var db = db_module.DBModule(function() {
 	        }
 	    }
 	]);
-	
+
     var db = db_module.DBModule(function() {
         var data = {};
         var condition = {};
