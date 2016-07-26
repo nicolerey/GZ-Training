@@ -19,35 +19,35 @@ server.register(require('inert'), function(err) {
 		    method: 'GET',
 		    path: '/',
 		    handler: function(request, reply) {
-		        reply.file('client/views/index.html');
+		        reply.file(Path.join(__dirname, 'client/views/index.html'));
 		    }
 		},
 		{
 		    method: 'GET',
 		    path: '/assets/{filename*}',
 		    handler: function(request, reply) {
-		        reply.file('client/assets/' + request.params.filename);
+		        reply.file(Path.join(__dirname, 'client/assets/' + request.params.filename));
 		    }
 		},
 		{
 		    method: 'GET',
 		    path: '/modules/{filename*}',
 		    handler: function(request, reply) {
-		        reply.file('client/modules/' + request.params.filename);
+		        reply.file(Path.join(__dirname, 'client/modules/' + request.params.filename));
 		    }
 		},
 		{
 		    method: 'GET',
 		    path: '/services/{filename*}',
 		    handler: function(request, reply) {
-		        reply.file('client/services/' + request.params.filename);
+		        reply.file(Path.join(__dirname, 'client/services/' + request.params.filename));
 		    }
 		},
 		{
 		    method: 'GET',
 		    path: '/controllers/{filename*}',
 		    handler: function(request, reply) {
-		        reply.file('client/controllers/' + request.params.filename);
+		        reply.file(Path.join(__dirname, 'client/controllers/' + request.params.filename));
 		    }
 		}
 	]);
