@@ -7,7 +7,7 @@ server.connection({
 	port: Number(process.argv[2] || 8080)
 });
 
-server.register([require('inert'), require('vision')], function(err){
+server.register([require('vision')], function(err){
 	if(err)
 		throw err;
 
