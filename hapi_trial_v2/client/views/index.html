@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Node-Angular Trial Website</title>
+    </head>
+    <body ng-app="firstApp">
+        <div ng-controller="indexController">
+            <div>
+                <input type="text" ng-model="name"/>
+                <button type="button" ng-click="AddNameToServer()">Add</button>    
+            </div>
+            <div>
+                <ul>
+                    <li ng-repeat="name in server_response">
+                        <input type="text" value="{{name.name}}" ng-model="name.name"/>
+                        <a href="#" ng-click="SaveNameToServer(name._id, name.name)">save</a>
+                        <a href="#" ng-click="DeleteNameFromServer(name._id)">delete</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="assets/js/angular.js"></script>
+        
+        <script src="modules/firstApp.js"></script>
+        <script src="controllers/indexController.js"></script>
+        <script src="services/firstApp_services.js"></script>
+    </body>
+</html>
