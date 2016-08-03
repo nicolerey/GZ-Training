@@ -1,0 +1,15 @@
+{
+  "name": "hapi_trial_v3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^14.1.0",
+    "hapi-auth-basic": "^4.2.0"
+  }
+}

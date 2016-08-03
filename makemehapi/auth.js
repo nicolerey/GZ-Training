@@ -12,6 +12,8 @@ server.connection({
 });
 
 var validate = function(request, username, password, callback){
+
+	console.log('nicole');
 	var isValid = (username===user.username && password===user.password);
 
 	return callback(null, isValid, {name: user.username});
