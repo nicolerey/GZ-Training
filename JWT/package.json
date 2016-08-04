@@ -1,0 +1,15 @@
+{
+  "name": "jwt",
+  "version": "1.0.0",
+  "description": "JWT (JSON Web Token) testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicole Rey Arriesga",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^3.1.6",
+    "hapi": "^14.1.0"
+  }
+}

@@ -1,5 +1,4 @@
 var Hapi = require('Hapi');
-var Path = require('path');
 
 var UserAuthenticationRoutes = require('./plugins/user_authentication');
 

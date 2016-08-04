@@ -31,7 +31,9 @@ module.exports = function(server, options){
 			};
 		}
 
-		reply(data);
+		return reply.continue({
+			credentials: data
+		});
 	}
 
 	return {authenticate: authenticate};

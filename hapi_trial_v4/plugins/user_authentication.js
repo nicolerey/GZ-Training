@@ -5,7 +5,7 @@ exports.register = function(server, options, next){
 		config: {
 			auth: 'auth_login',
 			handler: function(request, reply){
-				reply();
+				reply(request.auth.credentials);
 			}
 		}
 	});

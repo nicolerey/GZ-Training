@@ -1,0 +1,2 @@
+curl -v -H "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5pY29sZXJleSIsImRhdGEiOnsibmFtZSI6Ik5pY29sZSBSZXkgQXJyaWVzZ2EiLCJhZ2UiOjIwfSwiaWF0IjoxNDcwMjc5NzA0LCJleHAiOjE0NzAzNjYxMDR9.mqbHmc65r9shj8ey3Rrv7hlKp9RQeh9tHqKR2S1g21w" \
+http://localhost:8080/restricted
